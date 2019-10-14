@@ -14,8 +14,9 @@
 "use strict";
 
 function isAscending(items) {
-
-    // your code here
+    if (items.length < 2) return true;
+    for (let i = 1; i < items.length; i++)
+        if (items[i] <= items[i-1]) return false;
     return true;
 }
 
