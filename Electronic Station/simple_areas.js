@@ -22,32 +22,10 @@
 // 
 // END_DESC
 
-"use strict";
-
-function simpleAreas(...args) {
-    // your code here
-    return 0;
-}
-
-var assert = require('assert');
-if (!global.is_checking) {
-    // These "asserts" are used for self-checking and not for an auto-testing
-    function almostEqual(checked, correct, significantDigits=2) {
-        var precision = 0.1 ** significantDigits
-        return correct - precision < checked && checked < correct + precision
-    }
-
-    var test1 = almostEqual(simpleAreas(3), 7.07)
-    var test2 = almostEqual(simpleAreas(2, 2), 4)
-    var test3 = almostEqual(simpleAreas(2, 3), 6)
-    var test4 = almostEqual(simpleAreas(3, 5, 4), 6)
-    var test5 = almostEqual(simpleAreas(1.5, 2.5, 2), 1.5)
-
-    assert.equal(test1, true)
-    assert.equal(test2, true)
-    assert.equal(test3, true)
-    assert.equal(test4, true)
-    assert.equal(test5, true)
-
-    console.log("Coding complete? Click 'Check' to earn cool rewards!");
+function simpleAreas(...a) {
+    let len = a.length;
+    let circ = dia => Math.pow(dia/2, 2) * Math.PI;
+    let rect = (x, y) => x * y;
+    let trng = (x, y, z) => { var s = (x+y+z)/2; return Math.sqrt(s*((s-x)*(s-y)*(s-z))); };
+    return len == 1 ? circ(a[0]) : ( len == 2 ? rect(a[0], a[1]) : trng(a[0], a[1], a[2]));
 }

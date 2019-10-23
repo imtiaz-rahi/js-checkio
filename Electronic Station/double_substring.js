@@ -12,9 +12,8 @@
 "use strict";
 
 function doubleSubstring(line) {
-    // length of the longest substring that non-overlapping repeats more than once.
-
-    // your code here
+    var m = line.match(/(.)\1*/g);
+    console.log(typeof(m));
     return 0;
 }
 

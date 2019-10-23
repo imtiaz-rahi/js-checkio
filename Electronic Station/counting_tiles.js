@@ -17,8 +17,11 @@
 
 "use strict";
 
-function countingTiles(radius){
-    return [0, 0]
+function countingTiles(radius) { 
+    var d = (x, y) => Math.sqrt(x*x + y*y), a = Math.ceil(radius), i=0, x, y, f=0, p=0; 
+    while(i < a*a) 
+        d((x = i%a)+1, (y = ~~(i++/a))+1) <= radius ? f++: d(x, y) <= radius && p++;
+    return [4*f, 4*p];
 }
 
 var assert = require('assert');
